@@ -15,11 +15,17 @@ jobs:
           name: "setup env variable"
           command: echo 'export GEMFURY_COLABORATOR="testuser@syngenta.com"' >> "$BASH_ENV"
       - run:
+          name: "setup for gemfury cli"
+          command: echo "deb [trusted=yes] https://apt.fury.io/cli/ * *" > \ /etc/apt/sources.list.d/fury-cli.list
+      - run:
+          name: "gemfury cli install 1"
+          command: apt-get update
+      - run:
+          name: "gemfury cli install 2"
+          command: apt-get install fury-cli
+      - run:
           name: "print env variable"
           command: echo ${GEMFURY_COLABORATOR}
-      - run:
-          name: "print circleci env variables"
-          command: echo ${GEMFURY_COLABORATORS}
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
