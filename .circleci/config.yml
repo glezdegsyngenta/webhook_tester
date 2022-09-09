@@ -15,10 +15,7 @@ jobs:
           name: "setup env variable"
           command: echo 'export GEMFURY_COLABORATOR="testuser@syngenta.com"' >> "$BASH_ENV"
       - run:
-          name: "gemfury cli install 1"
-          command: apt-get update
-      - run:
-          name: "gemfury cli install 2"
+          name: "gemfury cli install"
           command: apt-get install fury-cli
       - run:
           name: "print env variable"
