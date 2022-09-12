@@ -1,7 +1,4 @@
 version: 2.1
-
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   gemfury-collaboration:
     macos:
@@ -11,10 +8,8 @@ jobs:
       - run: echo 'export GEMFURY_COLABORATOR="testuser@syngenta.com"' >> "$BASH_ENV"
       - run: brew tap gemfury/tap
       - run: brew install fury-cli
-      - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --api-token cRRPJ1Yy6V2veiTNiQG1
+      - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --account DIEGOGONZALEZ --api-token cRRPJ1Yy6V2veiTNiQG1
 
-# Invoke jobs via workflows
-# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   gemfury-onboarding:
     jobs:
