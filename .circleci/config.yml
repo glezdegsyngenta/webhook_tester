@@ -8,7 +8,9 @@ jobs:
       - run: echo 'export GEMFURY_COLABORATOR="testuser@syngenta.com"' >> "$BASH_ENV"
       - run: brew tap gemfury/tap
       - run: brew install fury-cli
-      - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --account DIEGOGONZALEZ --api-token cRRPJ1Yy6V2veiTNiQG1
+      - run: touch ~/.netrc
+      - run: echo "machine api.fury.iologin \n  login diego.gonzalez-1@syngenta.com \n  password 1Rtoe2-zJbJdWfahFHAf7bbokUPf1HBJo" > ~/.netrc
+      - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --account SYNGENTA-DIGITAL
 
 workflows:
   gemfury-onboarding:
