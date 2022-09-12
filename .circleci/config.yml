@@ -10,8 +10,8 @@ jobs:
       
       - run: sudo touch /etc/apt/sources.list.d/fury-cli.list
       - run: sudo sh -c 'echo "deb [trusted=yes] https://apt.fury.io/cli/ * *" >> /etc/apt/sources.list'
-      - run: apt-get update
-      - run: apt-get install fury-cli
+      - run: sudo apt-get update
+      - run: sudo apt-get install fury-cli
       - run: touch ~/.netrc
       - run: echo -e 'machine api.fury.io \n  login diego.gonzalez-1@syngenta.com \n  password 1Rtoe2-zJbJdWfahFHAf7bbokUPf1HBJo' > ~/.netrc
       - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --account SYNGENTA-DIGITAL
