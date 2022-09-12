@@ -9,12 +9,9 @@ jobs:
     steps:
       - checkout
       - run: echo 'export GEMFURY_COLABORATOR="testuser@syngenta.com"' >> "$BASH_ENV"
-      - run: echo 'export GEMFURY_PASS="Deg$#"!11235813"' >> "$BASH_ENV"
       - run: brew tap gemfury/tap
       - run: brew install fury-cli
-      - run: echo ${GEMFURY_COLABORATOR}
-      - run: (echo 'diego.gonzalez-1@syngenta.com'; echo ${GEMFURY_PASS}) | fury login
-      - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --api-token WCi2hBpxt4ryQEvcCQXb
+      - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --api-token cRRPJ1Yy6V2veiTNiQG1
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
