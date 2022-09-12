@@ -9,7 +9,7 @@ jobs:
       - run: brew tap gemfury/tap
       - run: brew install fury-cli
       - run: touch ~/.netrc
-      - run: echo "'machine api.fury.iologin \n  login diego.gonzalez-1@syngenta.com \n  password 1Rtoe2-zJbJdWfahFHAf7bbokUPf1HBJo'" > ~/.netrc
+      - run: echo "'machine api.fury.io \n  login diego.gonzalez-1@syngenta.com \n  password 1Rtoe2-zJbJdWfahFHAf7bbokUPf1HBJo'" > ~/.netrc
       - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --account SYNGENTA-DIGITAL
 
 workflows:
