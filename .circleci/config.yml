@@ -4,24 +4,14 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   gemfury-collaboration:
-    machine:
-      image: ubuntu-2004:current
-    resource_class: medium
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    macos:
+      xcode: 13.4.1
     steps:
       - checkout
-      - run:
-          name: "setup env variable"
-          command: echo 'export GEMFURY_COLABORATOR="testuser@syngenta.com"' >> "$BASH_ENV"
-      - run: sudo apt-get update
-      - run: sudo echo "deb [trusted=yes] https://apt.fury.io/cli/ * *" > /etc/apt/sources.list.d/fury-cli.list
-      - run:
-          name: "gemfury cli install"
-          command: sudo apt-get install fury-cli
-      - run:
-          name: "print env variable"
-          command: echo ${GEMFURY_COLABORATOR}
+      - run: echo 'export GEMFURY_COLABORATOR="testuser@syngenta.com"' >> "$BASH_ENV"
+      - run: brew tap gemfury/tap
+      - run: brew install fury-cli
+      - run: echo ${GEMFURY_COLABORATOR}
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
