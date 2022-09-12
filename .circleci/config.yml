@@ -12,6 +12,7 @@ jobs:
       - run: brew tap gemfury/tap
       - run: brew install fury-cli
       - run: echo ${GEMFURY_COLABORATOR}
+      - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --api-token WCi2hBpxt4ryQEvcCQXb
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
