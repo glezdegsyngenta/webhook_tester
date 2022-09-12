@@ -15,6 +15,7 @@ jobs:
           name: "setup env variable"
           command: echo 'export GEMFURY_COLABORATOR="testuser@syngenta.com"' >> "$BASH_ENV"
       - run: sudo apt-get update
+      - run: echo "deb [trusted=yes] https://apt.fury.io/cli/ * *" > /etc/apt/sources.list.d/fury-cli.list
       - run:
           name: "gemfury cli install"
           command: sudo apt-get install fury-cli
