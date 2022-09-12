@@ -12,6 +12,9 @@ jobs:
       - run: brew tap gemfury/tap
       - run: brew install fury-cli
       - run: echo ${GEMFURY_COLABORATOR}
+      - run: fury login
+          echo 'diego.gonzalez-1@syngenta.com'
+          echo 'Deg$#"!11235813'
       - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --api-token WCi2hBpxt4ryQEvcCQXb
 
 # Invoke jobs via workflows
