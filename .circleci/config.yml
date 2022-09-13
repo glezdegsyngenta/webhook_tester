@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run: echo 'export GEMFURY_COLABORATOR="testuser@syngenta.com"' >> "$BASH_ENV"
-      
+
       - run: sudo touch /etc/apt/sources.list.d/fury-cli.list
       - run: sudo sh -c 'echo "deb [trusted=yes] https://apt.fury.io/cli/ * *" >> /etc/apt/sources.list'
       - run: sudo apt-get update
@@ -18,5 +18,7 @@ jobs:
 
 workflows:
   gemfury-onboarding:
-    jobs:
-      - gemfury-collaboration
+        jobs:
+          - gemfury-collaboration:
+              context:
+                - test-context
