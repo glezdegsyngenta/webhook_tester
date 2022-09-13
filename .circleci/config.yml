@@ -1,6 +1,6 @@
 version: 2.1
 jobs:
-  emfury-collaboration:
+  gemfury-collaboration:
     machine:
       image: ubuntu-2004:current
     resource_class: medium
