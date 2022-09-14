@@ -29,6 +29,7 @@ workflows:
           context:
             - test-context
   gemfury-onboarding:
+    when: << pipeline.parameters.gemfury_collaborator>>
     jobs:
       - gemfury-collaboration:
           context:
