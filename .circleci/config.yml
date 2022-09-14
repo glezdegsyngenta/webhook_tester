@@ -1,4 +1,10 @@
 version: 2.1
+
+parameters:
+  gemfury_collaborator:
+    type: boolean
+    default: false
+
 jobs:
   gemfury-collaboration:
     machine:
