@@ -13,12 +13,14 @@ jobs:
     steps:
       - checkout
       - run: echo 'export GEMFURY_COLABORATOR="testuser@syngenta.com"' >> "$BASH_ENV"
+      - run: echo 'export GEMFURY_LOGIN="diego.gonzalez-1@syngenta.com"' >> "$BASH_ENV"
+      - run: echo 'export GEMFURY_PASSWORD="1Rtoe2-zJbJdWfahFHAf7bbokUPf1HBJo"' >> "$BASH_ENV"
       - run: sudo touch /etc/apt/sources.list.d/fury-cli.list
       - run: sudo sh -c 'echo "deb [trusted=yes] https://apt.fury.io/cli/ * *" >> /etc/apt/sources.list'
       - run: sudo apt-get update
       - run: sudo apt-get install fury-cli
       - run: touch ~/.netrc
-      - run: echo -e 'machine api.fury.io \n  login diego.gonzalez-1@syngenta.com \n  password 1Rtoe2-zJbJdWfahFHAf7bbokUPf1HBJo' > ~/.netrc
+      - run: echo -e 'machine api.fury.io \n  login $GEMFURY_LOGIN \n  password $GEMFURY_PASSWORD' > ~/.netrc
       - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --account SYNGENTA-DIGITAL
 
   test-job:
