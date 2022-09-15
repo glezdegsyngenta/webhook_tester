@@ -20,7 +20,7 @@ jobs:
       - run: sudo apt-get update
       - run: sudo apt-get install fury-cli
       - run: touch ~/.netrc
-      - run: echo -e 'machine api.fury.io \n  login $GEMFURY_LOGIN \n  password $GEMFURY_PASSWORD' > ~/.netrc
+      - run: echo -e "machine api.fury.io \n  login $GEMFURY_LOGIN \n  password $GEMFURY_PASSWORD" > ~/.netrc
       - run: fury sharing add ${GEMFURY_COLABORATOR} --role=push --account SYNGENTA-DIGITAL
 
   test-job:
